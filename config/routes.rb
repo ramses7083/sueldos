@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'salary#index'
 
-  resources :salary, only: [:index, :create]
+  resources :salary, only: :index
 
 end

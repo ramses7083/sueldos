@@ -1,11 +1,13 @@
 # frozen_string_literal: true
+
 require 'json-schema'
 
 class SalaryController < ApplicationController
-
   def index
     json_value = params[:json_value]
-    return @salaries = 'No paso' if validate_schema(json_value) == false
+    @json_sent = json_value
+    return @salaries = '' if json_value.nil?
+    return @salaries = 'No se envió un valor correcto' if validate_schema(json_value) == false
 
     data = JSON.parse(json_value || '[]')
     players = data.map { |p| Player.new.from_json(p.to_json) }
@@ -15,23 +17,21 @@ class SalaryController < ApplicationController
 
   def valid_json?(json)
     JSON.parse(json)
-    return true
-  rescue JSON::ParserError => e
-    return false
+    true
+  rescue JSON::ParserError
+    false
   end
 
   def validate_schema(json)
-    schema = {
-        "required" => ["nombre", "nivel", "goles", "sueldo", "bono", "sueldo_completo", "equipo"],
-        "properties" => {
-            "goles" => { "type" => "integer"},
-            "sueldo" => { "type" => "number"},
-            "bono" => { "type" => "number"}
-        }
-    }
+    structure = { 'required' => %w[nombre nivel goles sueldo bono sueldo_completo equipo],
+                  'properties' => {
+                    'goles' => { 'type' => 'integer' },
+                    'sueldo' => { 'type' => 'number' },
+                    'bono' => { 'type' => 'number' }
+                  } }
 
-    JSON::Validator.validate!(schema, json.as_json, :list => true)
-  rescue => exception
+    JSON::Validator.validate!(structure, json.as_json, list: true)
+  rescue StandardError
     false
   end
 
@@ -43,5 +43,4 @@ class SalaryController < ApplicationController
       cuauh: params[:level_cuauh]
     }
   end
-
 end

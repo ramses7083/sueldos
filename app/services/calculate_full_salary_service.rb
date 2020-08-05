@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CalculateFullSalaryService
   attr_reader :players
 
@@ -16,11 +18,11 @@ class CalculateFullSalaryService
   private
 
   def calculate_salary
-    results = @players.map { |p|
+    results = @players.map do |p|
       p.sueldo_completo = calculate_full_salary(p)
       p.results
-    }
-    results
+    end
+    JSON.pretty_generate(results)
   end
 
   def set_player_goals
@@ -31,7 +33,7 @@ class CalculateFullSalaryService
   end
 
   def calculate_teams_percentage
-    @players.as_json.group_by { |t| t["equipo"] }
+    @players.as_json.group_by { |t| t['equipo'] }
   end
 
   def calculate_indiv_percentage(player)
@@ -40,15 +42,15 @@ class CalculateFullSalaryService
   end
 
   def get_team_percentage(player)
-    scored_goals = @teams[player.equipo].map { |t| t["goles"] }.sum
-    expected_goals = @teams[player.equipo].map { |t| t["goles_minimos"] }.sum
+    scored_goals = @teams[player.equipo].map { |t| t['goles'] }.sum
+    expected_goals = @teams[player.equipo].map { |t| t['goles_minimos'] }.sum
     percentage = scored_goals * 100 / expected_goals
     team_percentage = percentage < 100 ? percentage : 100
     team_percentage
   end
 
-  def calculate_full_salary(p)
-    final_percentage = (p.porcentaje_ind + get_team_percentage(p)) / 2
-    p.sueldo_completo = p.sueldo + (final_percentage * p.bono / 100)
+  def calculate_full_salary(player)
+    final_percentage = (player.porcentaje_ind + get_team_percentage(player)) / 2
+    player.sueldo_completo = player.sueldo + (final_percentage * player.bono / 100)
   end
 end

@@ -1,0 +1,20 @@
+Style/Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+Layout/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'test/**/*'
+Metrics/AbcSize:
+  Max: 18
