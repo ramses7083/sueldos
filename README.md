@@ -1,24 +1,35 @@
-# README
+# Sueldos App por Ramses
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta aplicación desarrollada en Ruby on Rails permite calcular la cantidad de bonos que un jugador merece recibir en base a su desempeño como goleador.
 
-Things you may want to cover:
+Puedes probar ahora mismo esta app en la url `https://ramses-salary-app.herokuapp.com/` , sólo necesitas copiar tu JSON en el campo de texto y listo!
 
-* Ruby version
+# Instalación
 
-* System dependencies
+Si deseas instalar y correr esta aplicación en tu computadora es muy sencillo.
 
-* Configuration
+Lo primero que tienes que hacer es descargar este proyecto y posicionarte en la carpeta raíz mismo.
 
-* Database creation
+Enseguida corre los siguientes comandos:
 
-* Database initialization
+`rbenv install 2.6.3`
 
-* How to run the test suite
+`rbenv local 2.6.3`
 
-* Services (job queues, cache servers, search engines, etc.)
+`gem install bundler`
 
-* Deployment instructions
+`bundle install`
 
-* ...
+En este momento todas las dependencias están instaladas, ahora solo arranca el servidor con el siguiente comando:
+
+`rails server`
+
+Ahora sólo visita la URL `http://localhost:3000/` en tu navegador de confianza.
+
+Si deseas ejecutar las pruebas unitarias y revisar las ofensas de rubocop ejecuta los siguientes comandos:
+
+`rails test`
+
+`rubocop`
+
+Si deseas contactar al desarrollador, escribe a `ramses7083@gmail.com`. Tus comentarios serán bien recibidos.
