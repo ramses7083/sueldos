@@ -1,0 +1,19 @@
+<div id="headerContainer">
+  <h2 class="text-center">Salarios</h2>
+  <%= form_tag({ controller: "salary", action: "index" }, { :method => :get }) do %>
+    <label for="json_value">Json Value</label>
+    <%= text_area_tag :json_value %>
+    <label for="level_a">Nivel A</label>
+    <%= text_field_tag :level_a, 5 %>
+    <label for="level_b">Nivel B</label>
+    <%= text_field_tag :level_b, 10 %>
+    <label for="level_c">Nivel C</label>
+    <%= text_field_tag :level_c, 15 %>
+    <label for="level_d">Nivel Cuauh</label>
+    <%= text_field_tag :level_cuauh, 20 %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+  <div>
+    <%= @salaries %>
+  </div>
+</div>
