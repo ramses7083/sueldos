@@ -12,9 +12,9 @@ Puedes cambiar el mínimo de goles por categoría y también puedes agregar un J
 
 Si deseas instalar y correr esta aplicación en tu computadora es muy sencillo.
 
-Lo primero que tienes que hacer es descargar este proyecto y posicionarte en la carpeta raíz mismo.
+Lo primero que tienes que hacer es descargar este proyecto y posicionarte en la carpeta raíz del mismo.
 
-Enseguida corre los siguientes comandos:
+Enseguida ejecuta los siguientes comandos:
 
 `rbenv install 2.6.3`
 
@@ -28,7 +28,7 @@ En este momento todas las dependencias están instaladas, ahora solo arranca el 
 
 `rails server`
 
-Ahora sólo visita la URL `http://localhost:3000/` en tu navegador de confianza.
+Por último sólo visita la URL `http://localhost:3000/` en tu navegador de confianza.
 
 Si deseas ejecutar las pruebas unitarias y revisar las ofensas de rubocop ejecuta los siguientes comandos:
 
