@@ -4,6 +4,10 @@ Esta aplicación desarrollada en Ruby on Rails permite calcular la cantidad de b
 
 Puedes probar ahora mismo esta app en la url `https://ramses-salary-app.herokuapp.com/` , sólo necesitas copiar tu JSON en el campo de texto y listo!
 
+BONUS!!!
+
+Puedes cambiar el mínimo de goles por categoría y también puedes agregar un JSON con múltiples equipos.
+
 # Instalación
 
 Si deseas instalar y correr esta aplicación en tu computadora es muy sencillo.
